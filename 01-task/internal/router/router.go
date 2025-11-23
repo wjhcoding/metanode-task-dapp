@@ -39,11 +39,16 @@ func NewRouter() *gin.Engine {
 		{
 			// 查询区块，无需登录
 			blockchainGroup.GET("/block", v1.QueryBlock) // ?num=6000000
+			blockchainGroup.GET("/counter", v1.CounterGet)
 
 			// 发送交易，需要登录
 			auth := blockchainGroup.Group("")
 			auth.Use(middleware.JWTAuthMiddleware())
-			auth.POST("/tx", v1.SendTransaction) // JSON: {"to":"0x...","amount":0.001}
+			{
+				auth.POST("/tx", v1.SendTransaction)     // JSON: {"to":"0x...","amount":0.001}
+				auth.POST("/counter/inc", v1.CounterInc) // 写接口，需登录
+				auth.POST("/counter/dec", v1.CounterDec)
+			}
 		}
 	}
 

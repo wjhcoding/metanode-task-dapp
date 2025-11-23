@@ -2,6 +2,7 @@ package blockchain
 
 import (
 	"log"
+	"math/big"
 
 	"github.com/wjhcoding/metanode-task-dapp/01-task/config"
 
@@ -9,6 +10,7 @@ import (
 )
 
 var Client *ethclient.Client
+var ChainID *big.Int
 
 // InitClient 初始化以太坊 RPC 客户端
 func InitClient() {
@@ -20,5 +22,8 @@ func InitClient() {
 	}
 
 	Client = client
+
+	ChainID = big.NewInt(cfg.Blockchain.ChainID)
+
 	log.Println("Connected to Ethereum RPC:", cfg.Blockchain.RPC_URL)
 }

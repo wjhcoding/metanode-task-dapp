@@ -37,11 +37,13 @@ type PathConfig struct {
 
 // 区块链相关配置
 type BlockchainConfig struct {
-	RPC_URL       string
-	PrivateKey    string
-	GasLimit      uint64
-	GasTipCapGwei int64
-	GasFeeCapGwei int64
+	RPC_URL        string
+	ChainID        int64
+	PrivateKey     string
+	GasLimit       uint64
+	GasTipCapGwei  int64
+	GasFeeCapGwei  int64
+	CounterAddress string
 }
 
 var c TomlConfig

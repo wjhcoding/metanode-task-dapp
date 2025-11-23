@@ -45,7 +45,7 @@ func SendTransaction(to string, amountEth float64) (string, error) {
 	toAddress := common.HexToAddress(to)
 
 	tx := types.NewTx(&types.DynamicFeeTx{
-		ChainID:   big.NewInt(11155111), // Sepolia
+		ChainID:   big.NewInt(cfg.Blockchain.ChainID), // Sepolia
 		Nonce:     nonce,
 		To:        &toAddress,
 		Value:     value,
@@ -55,7 +55,7 @@ func SendTransaction(to string, amountEth float64) (string, error) {
 		Data:      []byte{},
 	})
 
-	signer := types.NewLondonSigner(big.NewInt(11155111))
+	signer := types.NewLondonSigner(big.NewInt(cfg.Blockchain.ChainID))
 	signedTx, err := types.SignTx(tx, signer, privateKey)
 	if err != nil {
 		return "", err
