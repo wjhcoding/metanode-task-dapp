@@ -11,7 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/wjhcoding/metanode-task-dapp/01-task/config"
+	"github.com/wjhcoding/metanode-task-dapp/01-task/internal/config"
 	"github.com/wjhcoding/metanode-task-dapp/01-task/internal/service/blockchain/contract"
 )
 

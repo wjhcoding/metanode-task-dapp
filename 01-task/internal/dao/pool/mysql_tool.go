@@ -2,16 +2,20 @@ package pool
 
 import (
 	"fmt"
+	"sync"
 
-	"github.com/wjhcoding/metanode-task-dapp/01-task/config"
+	"github.com/wjhcoding/metanode-task-dapp/01-task/internal/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
 
-var _db *gorm.DB
+var (
+	_db  *gorm.DB
+	once sync.Once
+)
 
-func init() {
+func initDB() {
 	username := config.GetConfig().MySQL.User     //账号
 	password := config.GetConfig().MySQL.Password //密码
 	host := config.GetConfig().MySQL.Host         //数据库地址，可以是Ip或者域名
@@ -39,5 +43,8 @@ func init() {
 }
 
 func GetDB() *gorm.DB {
+	once.Do(func() {
+		initDB()
+	})
 	return _db
 }

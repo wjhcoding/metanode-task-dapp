@@ -25,4 +25,4 @@ static/img/*
 web/static/file/*
 !web/static/file/.gitkeep
 
-config.toml
+configs/*.toml

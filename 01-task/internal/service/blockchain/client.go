@@ -4,7 +4,7 @@ import (
 	"log"
 	"math/big"
 
-	"github.com/wjhcoding/metanode-task-dapp/01-task/config"
+	"github.com/wjhcoding/metanode-task-dapp/01-task/internal/config"
 
 	"github.com/ethereum/go-ethereum/ethclient"
 )

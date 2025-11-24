@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	v1 "github.com/wjhcoding/metanode-task-dapp/01-task/api/v1"
+	v1 "github.com/wjhcoding/metanode-task-dapp/01-task/internal/api/v1"
 	"github.com/wjhcoding/metanode-task-dapp/01-task/internal/middleware"
 	"github.com/wjhcoding/metanode-task-dapp/01-task/pkg/common/response"
 	"github.com/wjhcoding/metanode-task-dapp/01-task/pkg/global/log"
